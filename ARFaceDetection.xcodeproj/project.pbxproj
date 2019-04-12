@@ -12,6 +12,9 @@
 		0EB29E741FE06D6D00C0F662 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EB29E721FE06D6D00C0F662 /* Main.storyboard */; };
 		0EB29E761FE06D6D00C0F662 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EB29E751FE06D6D00C0F662 /* Assets.xcassets */; };
 		0EB29E791FE06D6D00C0F662 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EB29E771FE06D6D00C0F662 /* LaunchScreen.storyboard */; };
+		91F0A73B22612C6200F160A1 /* nick-cage.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F0A73A22612C6200F160A1 /* nick-cage.png */; };
+		91F0A73D22612EF900F160A1 /* nick-cage-take2.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F0A73C22612EF900F160A1 /* nick-cage-take2.png */; };
+		91F0A73F2261362600F160A1 /* nick-cage-final.png in Resources */ = {isa = PBXBuildFile; fileRef = 91F0A73E2261362600F160A1 /* nick-cage-final.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		0EB29E751FE06D6D00C0F662 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EB29E781FE06D6D00C0F662 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0EB29E7A1FE06D6D00C0F662 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91F0A73A22612C6200F160A1 /* nick-cage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nick-cage.png"; sourceTree = "<group>"; };
+		91F0A73C22612EF900F160A1 /* nick-cage-take2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nick-cage-take2.png"; sourceTree = "<group>"; };
+		91F0A73E2261362600F160A1 /* nick-cage-final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nick-cage-final.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +60,11 @@
 		0EB29E6D1FE06D6D00C0F662 /* ARFaceDetection */ = {
 			isa = PBXGroup;
 			children = (
+				91F0A73A22612C6200F160A1 /* nick-cage.png */,
+				91F0A73C22612EF900F160A1 /* nick-cage-take2.png */,
 				0EB29E6E1FE06D6D00C0F662 /* AppDelegate.swift */,
 				0EB29E701FE06D6D00C0F662 /* FaceDetectionViewController.swift */,
+				91F0A73E2261362600F160A1 /* nick-cage-final.png */,
 				0EB29E721FE06D6D00C0F662 /* Main.storyboard */,
 				0EB29E751FE06D6D00C0F662 /* Assets.xcassets */,
 				0EB29E771FE06D6D00C0F662 /* LaunchScreen.storyboard */,
@@ -91,11 +100,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = Yanniki;
 				TargetAttributes = {
 					0EB29E6A1FE06D6D00C0F662 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -125,7 +135,10 @@
 			files = (
 				0EB29E791FE06D6D00C0F662 /* LaunchScreen.storyboard in Resources */,
 				0EB29E761FE06D6D00C0F662 /* Assets.xcassets in Resources */,
+				91F0A73D22612EF900F160A1 /* nick-cage-take2.png in Resources */,
+				91F0A73B22612C6200F160A1 /* nick-cage.png in Resources */,
 				0EB29E741FE06D6D00C0F662 /* Main.storyboard in Resources */,
+				91F0A73F2261362600F160A1 /* nick-cage-final.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +190,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -184,6 +198,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -234,6 +249,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -241,6 +257,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -275,13 +292,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9CF5Y5SBGU;
+				DEVELOPMENT_TEAM = H36H5AXY5V;
 				INFOPLIST_FILE = ARFaceDetection/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yanniki.ARFaceDetection;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -291,13 +308,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9CF5Y5SBGU;
+				DEVELOPMENT_TEAM = H36H5AXY5V;
 				INFOPLIST_FILE = ARFaceDetection/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yanniki.ARFaceDetection;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

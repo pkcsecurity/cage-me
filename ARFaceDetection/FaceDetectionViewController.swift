@@ -44,7 +44,7 @@ class FaceDetectionViewController: UIViewController {
         sceneView.session.run(configuration)
         
         //scan for faces in regular intervals
-        scanTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(scanForFaces), userInfo: nil, repeats: true)
+        scanTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(scanForFaces), userInfo: nil, repeats: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -66,19 +66,23 @@ class FaceDetectionViewController: UIViewController {
         
         let image = CIImage.init(cvPixelBuffer: capturedImage)
         
+        let cageImage = UIImage(named: "nick-cage-take2.png")
+        
         let detectFaceRequest = VNDetectFaceRectanglesRequest { (request, error) in
             
             DispatchQueue.main.async {
                 //Loop through the resulting faces and add a red UIView on top of them.
                 if let faces = request.results as? [VNFaceObservation] {
                     for face in faces {
-                        let faceView = UIView(frame: self.faceFrame(from: face.boundingBox))
-                    
-                        faceView.backgroundColor = .red
-                    
-                        self.sceneView.addSubview(faceView)
+                        let faceFrame = self.faceFrame(from: face.boundingBox)
+                        let imageView = UIImageView()
+                        imageView.frame = faceFrame
+                        imageView.image = cageImage
+                        imageView.center = UIView(frame: faceFrame).center
                         
-                        self.scannedFaceViews.append(faceView)
+                        self.sceneView.addSubview(imageView)
+                        
+                        self.scannedFaceViews.append(imageView)
                     }
                 }
             }
@@ -91,9 +95,20 @@ class FaceDetectionViewController: UIViewController {
     
     private func faceFrame(from boundingBox: CGRect) -> CGRect {
         
+        let scale = CGFloat(2.5)
+        
         //translate camera frame to frame inside the ARSKView
-        let origin = CGPoint(x: boundingBox.minX * sceneView.bounds.width, y: (1 - boundingBox.maxY) * sceneView.bounds.height)
-        let size = CGSize(width: boundingBox.width * sceneView.bounds.width, height: boundingBox.height * sceneView.bounds.height)
+        let unscaledWidth = boundingBox.width * sceneView.bounds.width;
+        let unscaledHeight = boundingBox.height * sceneView.bounds.height;
+        
+        let size = CGSize(width: unscaledWidth*scale, height: unscaledHeight*scale)
+        let ox0 = boundingBox.minX*sceneView.bounds.width
+        let oy0 = (1-boundingBox.maxY)*sceneView.bounds.height
+        let ox1 = ox0 - (unscaledWidth*(scale-1))/2
+        let oy1 = oy0 - (unscaledHeight*(scale-1))/2
+        
+        let origin = CGPoint(x: ox1, y: oy1)
+        NSLog("\nbb w: %f\nbb h:%f\nsv w:%f\nsv h:%f\nmin x: %f\nmax y: %f\n", boundingBox.width, boundingBox.height, sceneView.bounds.width, sceneView.bounds.height, boundingBox.minX, boundingBox.maxY)
         
         return CGRect(origin: origin, size: size)
     }
