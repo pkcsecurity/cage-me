@@ -108,7 +108,6 @@ class FaceDetectionViewController: UIViewController {
         let oy1 = oy0 - (unscaledHeight*(scale-1))/2
         
         let origin = CGPoint(x: ox1, y: oy1)
-        NSLog("\nbb w: %f\nbb h:%f\nsv w:%f\nsv h:%f\nmin x: %f\nmax y: %f\n", boundingBox.width, boundingBox.height, sceneView.bounds.width, sceneView.bounds.height, boundingBox.minX, boundingBox.maxY)
         
         return CGRect(origin: origin, size: size)
     }
