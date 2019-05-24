@@ -75,14 +75,33 @@ class FaceDetectionViewController: UIViewController {
                 if let faces = request.results as? [VNFaceObservation] {
                     for face in faces {
                         let faceFrame = self.faceFrame(from: face.boundingBox)
-                        let imageView = UIImageView()
-                        imageView.frame = faceFrame
-                        imageView.image = cageImage
-                        imageView.center = UIView(frame: faceFrame).center
-                        
-                        self.sceneView.addSubview(imageView)
-                        
-                        self.scannedFaceViews.append(imageView)
+                        let maybePoints = face.landmarks?.outerLips?.normalizedPoints
+                        if let points = maybePoints {
+                            let imageView = UIImageView()
+                            imageView.frame = faceFrame
+                            imageView.image = cageImage
+                            imageView.center = UIView(frame: faceFrame).center
+                            
+                            // take the points in the outerlips and draw them onto the bounding box
+                            let newLayer = CAShapeLayer()
+                            newLayer.strokeColor = UIColor.red.cgColor
+                            newLayer.lineWidth = 2.0
+                            
+                            let path = UIBezierPath()
+                            path.move(to: CGPoint(x: points[0].x, y: points[0].y))
+                            for i in 0..<points.count - 1 {
+                                let point = CGPoint(x: points[i].x, y: points[i].y)
+                                path.addLine(to: point)
+                                path.move(to: point)
+                            }
+                            path.addLine(to: CGPoint(x: points[0].x, y: points[0].y))
+                            newLayer.path = path.cgPath
+                            imageView.layer.insertSublayer(newLayer, at: 0)
+                            
+                            self.sceneView.addSubview(imageView)
+                            
+                            self.scannedFaceViews.append(imageView)
+                        }
                     }
                 }
             }
